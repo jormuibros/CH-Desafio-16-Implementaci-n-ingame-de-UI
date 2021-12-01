@@ -1,0 +1,24 @@
+----------------
+Cooking Monsters
+----------------
+
+El juego trata sobre aventureros que van a los calabozos y otros lugares a cazar monstruos para obtener su carne, recolectar hierbas, hongos y otros objetos comestibles. Gracias a lo cual pueden crear platos deliciosos y únicos en el reino que venden en la taberna. Y, a veces, mejoran su equipo.
+
+-----------------
+Mecánicas Básicas
+-----------------
+*Exploración de calabozos.
+*Lucha contra mosntruos.
+*Recolección de materiales.
+
+----------------------------------------
+Durante el curso o después según tiempos
+----------------------------------------
+*Elección de héroe (mago, guerrero, arquero) o de armamento (según posibilidades).
+*Obtención de nuevos equipos.
+*Mecánica de cocina.
+*Sector de taberna para atender clientes.
+*Tienda para comprar ingredientes básicos y nuevo equipo.
+*Adaptación a móviles.
+*Personalización visual de héroe (freemium).
+*Dungeons generados de manera procedural.
