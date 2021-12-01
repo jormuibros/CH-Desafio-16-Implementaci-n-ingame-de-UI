@@ -14,6 +14,8 @@ public class Patrol : MonoBehaviour
     public bool IseeYou = false;
     private bool goBack = false;
     private int currentIndex;
+
+    [SerializeField] protected SkeletonData myData;
         // Start is called before the first frame update
     void Start()
     {
@@ -45,17 +47,13 @@ public class Patrol : MonoBehaviour
 
         }            
     }
-    void MovementPatrol()
+    public void  MovementPatrol()
     {
-
         Vector3 deltaVector = waypoints[currentIndex].position - transform.position;
         Vector3 direction = deltaVector.normalized;
-        
         transform.forward = Vector3.Lerp(transform.forward, direction, rotationSpeed * Time.deltaTime);
         transform.position += transform.forward * Speed * Time.deltaTime;
-        
         float distance = deltaVector.magnitude;
-        
         if(distance < minmunDistance )
         {
           if(currentIndex >= waypoints.Length -1)
@@ -76,7 +74,7 @@ public class Patrol : MonoBehaviour
     }
 
  
-    private void ChaseCharacter()
+    public virtual void ChaseCharacter()
     {
        // Debug.Log("ENTRO EN AREA");
         Vector3 direction =(Hero.transform.position - transform.position).normalized;
