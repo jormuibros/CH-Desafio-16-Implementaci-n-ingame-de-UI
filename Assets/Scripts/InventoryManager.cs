@@ -8,16 +8,17 @@ public class InventoryManager : MonoBehaviour
 
      private  Stack inventoryOne;
      private  Queue inventoryTwo;
-     Dictionary<string, GameObject> inventoryThree;
+     private  Queue inventoryThree;
+     Dictionary<string, GameObject> inventoryFour;
 
-     [SerializeField] private int[] foodQuantity = { 0, 0, 0 };
-    [SerializeField] private int[] moneyQuantity = { 0, 0, 0 };
+     [SerializeField] private int[] foodQuantity = {0, 0, 0, 0};
 
     void Start()
     {
         inventoryOne = new Stack();
         inventoryTwo = new Queue();
-        inventoryThree = new Dictionary<string, GameObject>();
+        inventoryThree = new Queue();
+        inventoryFour = new Dictionary<string, GameObject>();
 
     }
 
@@ -40,6 +41,9 @@ public class InventoryManager : MonoBehaviour
                 break;
             case GameManager.typesFood.Peach:
                 foodQuantity[2]++;
+                break;
+            case GameManager.typesFood.Gold:
+                foodQuantity[3]++;
                 break;
             default:
                 Debug.Log("NO SE PUEDE CONTAR");
@@ -100,15 +104,14 @@ public class InventoryManager : MonoBehaviour
         return inventoryTwo.Count> 0;
     }
 
-    //-------------------------- INVENTORY DIC -------------------------//
-    public void AddInventoryThree(string key,GameObject item)
+      public void AddInventoryThree(GameObject item)
     {
-        inventoryThree.Add(key, item);
+        inventoryThree.Enqueue(item);
     }
 
-    public GameObject GetInventoryThree(string key)
+    public GameObject GetInventoryThree()
     {
-        return inventoryThree[key] as GameObject;
+        return inventoryThree.Dequeue() as GameObject;
     }
 
     public void SeeInventoryThree()
@@ -122,32 +125,31 @@ public class InventoryManager : MonoBehaviour
 
     public bool InventoryThreeHas()
     {
-        return inventoryThree.Count > 0;
+        return inventoryThree.Count> 0;
     }
 
-    //MONEY
-    public void CountMoney(GameObject money)
+    //-------------------------- INVENTORY DIC -------------------------//
+    public void AddInventoryFour(string key,GameObject item)
     {
-        MoneyController f = money.GetComponent<MoneyController>();
-        switch (f.GetTypeMoney())
+        inventoryFour.Add(key, item);
+    }
+
+    public GameObject GetInventoryFour(string key)
+    {
+        return inventoryFour[key] as GameObject;
+    }
+
+    public void SeeInventoryFour()
+    {
+        Debug.Log(inventoryFour.ToString());
+        foreach (var item in inventoryFour)
         {
-            case GameManager.typeMoney.Gold:
-                foodQuantity[0]++;
-                break;
-            case GameManager.typeMoney.Silver:
-                foodQuantity[1]++;
-                break;
-            case GameManager.typeMoney.Bronce:
-                foodQuantity[2]++;
-                break;
-            default:
-                Debug.Log("NO SE PUEDE CONTAR");
-                break;
+            Debug.Log(item.ToString());
         }
     }
-
-    public int[] GetMoneyQuantity()
+ 
+    public bool InventoryFourHas()
     {
-        return moneyQuantity;
+        return inventoryThree.Count > 0;
     }
 }

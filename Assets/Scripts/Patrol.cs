@@ -11,11 +11,11 @@ public class Patrol : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] GameObject Hero;
     [SerializeField] private Animator animEnemy;
+    
     public bool IseeYou = false;
     private bool goBack = false;
     private int currentIndex;
 
-    [SerializeField] protected SkeletonData myData;
         // Start is called before the first frame update
     void Start()
     {

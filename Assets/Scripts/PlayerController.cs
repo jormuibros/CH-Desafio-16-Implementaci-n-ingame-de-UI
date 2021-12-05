@@ -40,9 +40,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.J) && mgInventory.InventoryThreeHas())
         {
-            UseItem();
-     
-     
+            UseItem();     
+        }
+        
+        if (Input.GetKeyUp(KeyCode.J) && mgInventory.InventoryFourHas())
+        {
+            UseItem();     
         }
     }
 
@@ -108,36 +111,19 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Food"))
         {
+            Debug.Log("food");
             GameObject food = collision.gameObject;
             food.SetActive(false);
-            //mgInventory.AddInventoryOne(food);
-            //mgInventory.SeeInventoryOne();
-            //mgInventory.AddInventoryTwo(food);
-            //mgInventory.SeeInventoryTwo();
-            mgInventory.AddInventoryThree(food.name, food);
-            mgInventory.SeeInventoryThree();
+            mgInventory.AddInventoryFour(food.name, food);
+            mgInventory.SeeInventoryFour();
             mgInventory.CountFood(food);
-        }
-
-         if (collision.gameObject.CompareTag("Gold"))
-        {
-            GameObject money = collision.gameObject;
-            money.SetActive(false);
-            //mgInventory.AddInventoryOne(food);
-            //mgInventory.SeeInventoryOne();
-            //mgInventory.AddInventoryTwo(food);
-            //mgInventory.SeeInventoryTwo();
-            mgInventory.AddInventoryThree(money.name, money);
-            mgInventory.SeeInventoryThree();
-            mgInventory.CountFood(money);
-        }
-        
+        }        
     }
       private void UseItem()
     {
         //GameObject food = mgInventory.GetInventoryOne();
         //GameObject food = mgInventory.GetInventoryTwo();
-        GameObject food = mgInventory.GetInventoryThree("egg");
+        GameObject food = mgInventory.GetInventoryFour("food");
         food.SetActive(true);
         food.transform.position = transform.position + new Vector3(1f,.1f,.1f);
     }

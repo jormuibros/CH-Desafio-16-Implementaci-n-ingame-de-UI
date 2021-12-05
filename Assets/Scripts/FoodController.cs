@@ -5,7 +5,7 @@ using UnityEngine;
 public class FoodController : MonoBehaviour
 {
 
-    [SerializeField] GameManager.typesFood typefood; 
+    [SerializeField] GameManager.typesFood typeFood; 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,6 @@ public class FoodController : MonoBehaviour
 
     public GameManager.typesFood GetTypeFood()
     {
-        return typefood; 
+        return typeFood;
     }
 }

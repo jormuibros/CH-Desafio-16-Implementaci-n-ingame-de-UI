@@ -6,8 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private int  Score;
-    public enum typeMoney {Gold, Silver, Bronce};
-    public enum typesFood { Apple , Watermelon, Peach };
+    public enum typesFood {Apple , Watermelon, Peach, Gold};
     private void Awake()
     {
         if(instance == null)

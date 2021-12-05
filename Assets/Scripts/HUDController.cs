@@ -36,6 +36,7 @@ public class HUDController : MonoBehaviour
         textPeach.text = "x"+foodCount[0];
         textWatermelon.text = "x"+foodCount[1];
         textApple.text = "x"+foodCount[2];
+        textGold.text = "x"+foodCount[3];
     }
 
     public void TooglePanel()

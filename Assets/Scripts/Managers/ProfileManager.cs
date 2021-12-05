@@ -6,7 +6,6 @@ public class ProfileManager : MonoBehaviour
 {
     public static ProfileManager instance;
     // Start is called before the first frame update
-
    [SerializeField] private string playerName;
    [SerializeField] private bool  isVisibleName;
 
