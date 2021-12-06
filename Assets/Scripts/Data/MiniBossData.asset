@@ -16,4 +16,4 @@ MonoBehaviour:
   hp: 10000
   Speed: 100
   distanceRay: 5
-  damage: 555
+  miniBossDamage: 3

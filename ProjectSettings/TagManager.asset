@@ -9,6 +9,8 @@ TagManager:
   - Gold
   - Enemy
   - Food
+  - MiniBoss
+  - Potion
   layers:
   - Default
   - TransparentFX

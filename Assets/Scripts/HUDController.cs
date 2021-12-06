@@ -12,11 +12,6 @@ public class HUDController : MonoBehaviour
 
     [SerializeField]  private InventoryManager mgInventory;
     [SerializeField]  private GameObject panelItems;
-    [SerializeField] private Slider slider;
-	[SerializeField] private Gradient gradient;
-	[SerializeField] private Image fill;
-
-    [SerializeField] private int currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -43,24 +38,4 @@ public class HUDController : MonoBehaviour
     {
         panelItems.SetActive(!panelItems.activeSelf);
     }
-    public void SetMaxHealth(int health)
-	{
-		slider.maxValue = health;
-		slider.value = health;
-
-		fill.color = gradient.Evaluate(1f);
-	}
-
-    public void SetHealth(int health)
-	{
-		slider.value = health;
-
-		fill.color = gradient.Evaluate(slider.normalizedValue);
-	}
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth = damage;
-    }
-
 }

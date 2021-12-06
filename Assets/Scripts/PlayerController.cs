@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,14 +13,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     private int temporizador =0;
     [SerializeField] private GameObject Door;
-    [SerializeField] private int lifePlayer = 3;
+
+    [SerializeField] private GameObject bottle_red;
+    [SerializeField] public int lifePlayer = 5;
     private InventoryManager mgInventory;
+    
+    [SerializeField] private int skeletonDamage;
+    [SerializeField] private int miniBossDamage;
+
+     [SerializeField] private Slider lifeBar;
+
     // Start is called before the first frame update
+
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         animPlayer.SetBool("isRun", false);
-        mgInventory = GetComponent<InventoryManager>();
+        mgInventory = GetComponent<InventoryManager>();      
     }
 
     // Update is called once per frame
@@ -28,25 +39,30 @@ public class PlayerController : MonoBehaviour
         //Move();
         Attack();
        
-        if (Input.GetKeyUp(KeyCode.G) && mgInventory.InventoryOneHas())
+        if (Input.GetKeyDown(KeyCode.Z) && mgInventory.InventoryOneHas())
         {
             UseItem();
+            lifePlayer += 1;  
         }
 
-        if (Input.GetKeyUp(KeyCode.H) && mgInventory.InventoryTwoHas())
+        if (Input.GetKeyDown(KeyCode.X) && mgInventory.InventoryTwoHas())
         {
             UseItem();
+            lifePlayer += 1;  
         }
 
-        if (Input.GetKeyUp(KeyCode.J) && mgInventory.InventoryThreeHas())
+        if (Input.GetKeyDown(KeyCode.C) && mgInventory.InventoryThreeHas())
         {
-            UseItem();     
+            UseItem();
+            lifePlayer = lifePlayer + 1; 
         }
         
-        if (Input.GetKeyUp(KeyCode.J) && mgInventory.InventoryFourHas())
-        {
-            UseItem();     
-        }
+        if(lifePlayer < 0)
+            {
+                Debug.Log("GAME OVER");
+            }
+
+        lifeBar.GetComponent<Slider>().value = lifePlayer;
     }
 
     
@@ -95,14 +111,29 @@ public class PlayerController : MonoBehaviour
       Debug.Log("PUERTA DESTRUIDA");
       Destroy(Door.gameObject);   
     }
+
+    if(collision.gameObject.name == "bottle_red" && Input.GetKeyDown(KeyCode.Q))
+    {
+        lifePlayer +=5;
+        Destroy(gameObject);
+        Debug.Log("POCIÓN DESTRUIDA");
+    }
+
     }
     
-      private void OnCollisionEnter(Collision collision)
+      public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+         if (collision.gameObject.CompareTag("Enemy"))
         {
-            lifePlayer--;
-            Destroy(collision.gameObject);
+            lifePlayer = lifePlayer - skeletonDamage;
+            if(lifePlayer < 0)
+            {
+                Debug.Log("GAME OVER");
+            }
+        }
+        if(collision.gameObject.CompareTag("MiniBoss"))
+        {
+            lifePlayer = lifePlayer - miniBossDamage;
             if(lifePlayer < 0)
             {
                 Debug.Log("GAME OVER");
@@ -117,12 +148,11 @@ public class PlayerController : MonoBehaviour
             mgInventory.AddInventoryFour(food.name, food);
             mgInventory.SeeInventoryFour();
             mgInventory.CountFood(food);
-        }        
+        }               
     }
-      private void UseItem()
+
+   private void UseItem()
     {
-        //GameObject food = mgInventory.GetInventoryOne();
-        //GameObject food = mgInventory.GetInventoryTwo();
         GameObject food = mgInventory.GetInventoryFour("food");
         food.SetActive(true);
         food.transform.position = transform.position + new Vector3(1f,.1f,.1f);

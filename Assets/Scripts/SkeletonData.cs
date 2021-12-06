@@ -9,5 +9,5 @@ public class SkeletonData : ScriptableObject
     [SerializeField] private int hp;
     [SerializeField] private int Speed;
     [SerializeField] private float distanceRay;
-    [SerializeField] private int damage;
+    [SerializeField] public float enemydamage;
 }

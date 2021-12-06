@@ -11,10 +11,15 @@ public class Patrol : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] GameObject Hero;
     [SerializeField] private Animator animEnemy;
+    [SerializeField] private int enemyLife;
+    [SerializeField] private int enemyDamage;
+    
+    [SerializeField] private int playerDamage;
     
     public bool IseeYou = false;
     private bool goBack = false;
     private int currentIndex;
+
 
         // Start is called before the first frame update
     void Start()
@@ -87,12 +92,13 @@ public class Patrol : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-        Debug.Log("Jugador Herido");
-        //GameManager.instance.addScore();
-        //Debug.Log(GameManager.instance.getScore());
-        //Destroy(gameObject);
+          enemyLife = enemyLife - playerDamage;
+            if(enemyLife < 0)
+            {
+             Destroy(gameObject);
+            }
         }
-
+     
     }
     private void OnDrawGizmos()
     {

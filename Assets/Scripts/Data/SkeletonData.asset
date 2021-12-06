@@ -16,4 +16,4 @@ MonoBehaviour:
   hp: 500
   Speed: 5
   distanceRay: 10
-  damage: 50
+  enemydamage: 2

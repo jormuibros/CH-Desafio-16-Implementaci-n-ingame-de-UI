@@ -10,5 +10,5 @@ public class MiniBossData : ScriptableObject
     [SerializeField] private int hp;
     [SerializeField] private int Speed;
     [SerializeField] private float distanceRay;
-    [SerializeField] private int damage;
+    [SerializeField] private int miniBossDamage;
 }
