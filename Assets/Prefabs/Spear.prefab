@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spear
       objectReference: {fileID: 0}
+    - target: {fileID: 1821075506648824, guid: c056e2a74dd3afd459d3ef4f789d6744, type: 3}
+      propertyPath: m_TagString
+      value: TrapArrow
+      objectReference: {fileID: 0}
     - target: {fileID: 4885542108700784, guid: c056e2a74dd3afd459d3ef4f789d6744, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -4757,8 +4757,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860460636}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   m_Radius: 0.29223496
   m_Height: 0.5844699
   m_Direction: 1
@@ -5106,7 +5106,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012401693442, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_TagString
-      value: Potion
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_Name
@@ -5385,8 +5385,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03999901, y: 0.85617065, z: 14.287413}
+  m_LocalRotation: {x: 0.35755026, y: -0.00422042, z: 0.0016158473, w: 0.933883}
+  m_LocalPosition: {x: -0.35000098, y: 11.776171, z: 4.1174126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6322,7 +6322,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 12.2
@@ -6762,7 +6762,7 @@ GameObject:
   - component: {fileID: 1117815883}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: TrapArrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7881,10 +7881,11 @@ MonoBehaviour:
     m_Bits: 64
   animPlayer: {fileID: 1259298102}
   Door: {fileID: 1245144813}
-  bottle_red: {fileID: 0}
-  lifePlayer: 12
-  skeletonDamage: 1
+  Bottle_Health: {fileID: 2001469537}
+  lifePlayer: 20
+  skeletonDamage: 2
   miniBossDamage: 3
+  trapDamage: 1
   lifeBar: {fileID: 1420481885}
 --- !u!136 &1259298100
 CapsuleCollider:
@@ -8779,9 +8780,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 30
   m_WholeNumbers: 0
-  m_Value: 12
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12088,6 +12089,41 @@ MonoBehaviour:
   shootCooldown: 2
   timeShoot: 2
   SpearPrefab: {fileID: 6887008895949764473, guid: a1bd46847af6e954ab05cd5ae84a8f1b, type: 3}
+--- !u!1 &2001469537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
+  m_PrefabInstance: {fileID: 947424721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2001469539
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001469537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.42370796
+  m_Height: 0.8474159
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83330023, z: -0.07629204}
+--- !u!54 &2001469540
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001469537}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &2004305703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4754769036795130, guid: 75a94bfbbdc2a294aa461d7df91ef417, type: 3}

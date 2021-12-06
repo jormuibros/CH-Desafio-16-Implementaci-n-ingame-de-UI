@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flame
       objectReference: {fileID: 0}
+    - target: {fileID: 1341400566451502, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
+      propertyPath: m_TagString
+      value: TrapArrow
+      objectReference: {fileID: 0}
     - target: {fileID: 4046597960596706, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -94,6 +98,18 @@ PrefabInstance:
     - target: {fileID: 198762084529660820, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198762084529660820, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.023584902
+      objectReference: {fileID: 0}
+    - target: {fileID: 198762084529660820, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.023584902
+      objectReference: {fileID: 0}
+    - target: {fileID: 198762084529660820, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199536009799156984, guid: 68b9ca83f6a52fd429c470306bce5916, type: 3}
       propertyPath: m_Materials.Array.size

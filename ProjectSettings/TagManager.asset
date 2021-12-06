@@ -11,6 +11,7 @@ TagManager:
   - Food
   - MiniBoss
   - Potion
+  - TrapArrow
   layers:
   - Default
   - TransparentFX

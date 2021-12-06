@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animPlayer;
     private int temporizador =0;
     [SerializeField] private GameObject Door;
-
-    [SerializeField] private GameObject bottle_red;
+    [SerializeField] private GameObject Bottle_Health;
     [SerializeField] public int lifePlayer = 5;
     private InventoryManager mgInventory;
     
     [SerializeField] private int skeletonDamage;
     [SerializeField] private int miniBossDamage;
+
+    [SerializeField] private int trapDamage;
 
      [SerializeField] private Slider lifeBar;
 
@@ -111,14 +112,6 @@ public class PlayerController : MonoBehaviour
       Debug.Log("PUERTA DESTRUIDA");
       Destroy(Door.gameObject);   
     }
-
-    if(collision.gameObject.name == "bottle_red" && Input.GetKeyDown(KeyCode.Q))
-    {
-        lifePlayer +=5;
-        Destroy(gameObject);
-        Debug.Log("POCIÓN DESTRUIDA");
-    }
-
     }
     
       public void OnCollisionEnter(Collision collision)
@@ -140,6 +133,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+         if(collision.gameObject.CompareTag("TrapArrow"))
+        {
+            lifePlayer = lifePlayer - trapDamage;
+            if(lifePlayer < 0)
+            {
+                Debug.Log("GAME OVER");
+            }
+        }
+
         if (collision.gameObject.CompareTag("Food"))
         {
             Debug.Log("food");
@@ -148,7 +150,15 @@ public class PlayerController : MonoBehaviour
             mgInventory.AddInventoryFour(food.name, food);
             mgInventory.SeeInventoryFour();
             mgInventory.CountFood(food);
-        }               
+        }              
+
+        if(collision.gameObject.CompareTag("Potion"))
+        {
+            lifePlayer = lifePlayer + 5;
+            Destroy(Bottle_Health.gameObject);
+            Debug.Log("POCIÓN DESTRUIDA");
+        }
+
     }
 
    private void UseItem()
